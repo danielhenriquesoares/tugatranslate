@@ -1,0 +1,42 @@
+<form role="form" action="<?php echo $this->element->getAction(); ?>" method="post">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <?php echo $this->element->registercsrf; ?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <?php echo $this->element->usernameregister;?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <?php echo $this->element->passwordregister;?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <?php echo $this->element->passwordretype;?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <?php echo $this->element->captcha;?>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <button type="submit" class="btn btn-success">Register</button>
+        </div>
+    </div>
+</form>

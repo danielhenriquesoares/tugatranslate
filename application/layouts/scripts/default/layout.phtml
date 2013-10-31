@@ -1,0 +1,53 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">-->
+<?php echo $this->doctype; ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php echo $this->headTitle(); ?>
+    <?php $this->headLink(array('rel' => 'favicon',
+            'href' => 'favicon.ico'),
+        'PREPEND'); ?>
+    <?php
+            /*echo $this->headLink()->appendStylesheet('/css/default/headerFooter.css')
+                                  ->appendStylesheet('/css/general.css')
+                                  ->appendStylesheet('/css/default/homepage.css');
+            echo $this->headScript()->appendFile('http://code.jquery.com/jquery-1.10.1.min.js')
+                                    ->appendFile('http://code.jquery.com/jquery-migrate-1.2.1.min.js')
+                                    ->appendFile('/js/jquery.modalBox.js')
+                                    ->appendFile('/js/default/default.js');*/
+            echo $this->headScript()->appendFile('http://code.jquery.com/jquery-1.10.1.min.js')
+                                  ->appendFile('http://code.jquery.com/jquery-migrate-1.2.1.min.js')
+                                  ->appendFile('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js');
+            echo $this->headLink()->appendStylesheet('http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+                                  ->appendStylesheet('/css/general.css');
+    ?>
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?php echo $this->baseUrl().'/' ?>">Tuga Translate</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <?php
+                        if ($this->layout()->loginform){
+                            echo $this->layout()->loginform;
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->layout()->content; ?>
+        <footer><p>© Company 2013</p></footer>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+#maintenance{
+    width: 1200px;
+    height: 768px;
+    background-image: url('/img/under_construction.jpg');
+    background-repeat: repeat;
+    position: absolute;
+}
+#teste{
+    color: blue;
+}

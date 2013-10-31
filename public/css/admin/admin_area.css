@@ -1,0 +1,14 @@
+body {
+    margin-top: -17px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+#header_container{
+    width: 100%;
+    height: 50px;
+    background-color: #727c8c;
+}
+
+#header_admin{
+    margin-left: 50%;
+}

@@ -1,0 +1,36 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">-->
+<?php echo $this->doctype; ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <?php echo $this->headTitle(); ?>
+    <?php $this->headLink(array('rel' => 'favicon',
+            'href' => 'favicon.ico'),
+        'PREPEND'); ?>
+    <?php
+    echo $this->headLink()->appendStylesheet('/css/general.css')
+                          ->appendStylesheet('/css/admin/admin_area.css');
+    echo $this->headScript()->appendFile('http://code.jquery.com/jquery-1.10.1.min.js')
+        ->appendFile('http://code.jquery.com/jquery-migrate-1.2.1.min.js')
+        ->appendFile('/js/jquery.menu.js')
+        ->appendFile('/js/admin/admin.js');
+    ?>
+</head>
+<body>
+<div id="header_container">
+    <div id="header_admin">
+       <h1>Admin Area</h1>
+    </div>
+</div>
+<div id=menu>
+    <?php echo $this->navigation(Zend_Registry::get('Admin_Navigation'))->menu();?>
+</div>
+<?php echo $this->layout()->content; ?>
+<div class="clear"></div>
+<div id="footer_container">
+    <div id="footer">
+        <p>Create footer for Admin area</p>
+    </div>
+</div>
+</body>
+</html>
