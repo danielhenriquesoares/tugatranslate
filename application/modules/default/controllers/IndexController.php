@@ -60,7 +60,7 @@ class Default_IndexController extends Zend_Controller_Action
     {
         if ($this->_registerForm === null){
             $this->_registerForm = new Default_Form_Register();
-            $this->_registerForm->setAction('default/index/register');
+            $this->_registerForm->setAction('/default/index/register');
         }
 
         return $this->_registerForm;
@@ -68,7 +68,6 @@ class Default_IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        //$this->view->loginForm = $this->getLoginForm();
         $this->_helper->layout()->loginform = $this->getLoginForm();
     }
 
@@ -76,9 +75,10 @@ class Default_IndexController extends Zend_Controller_Action
     {
         $this->_helper->viewRenderer->setNoRender(true);
 
+        // O formulário de login foi submetido
         if ($this->getRequest()->isPost()){
-            // Verificar se a tabela tem registos
 
+            // Verificar se a tabela tem registos
             if (!$this->getUsersAdapter()->getNumOfUsers()){
                 $this->redirect('index/register');
             }
@@ -87,21 +87,11 @@ class Default_IndexController extends Zend_Controller_Action
 
                 $data = $this->_loginForm->getValues();
 
-                /*var_dump($data);
-                die('login action');*/
-
                 $auth = Zend_Auth::getInstance();
 
                 $authAdapter = new Zend_Auth_Adapter_DbTable($this->getUsersDbTable()->getAdapter(),'users');
                 $authAdapter->setIdentityColumn('username')
                     ->setCredentialColumn('password');
-
-
-                /*var_dump(Zend_Registry::getInstance()->constants->salt);
-                die;*/
-
-                //$salt = strtr(base64_encode(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM)), '+', '.');
-
 
                 $encryptedPassword = sha1($data['password'].Zend_Registry::getInstance()->constants->salt);
 
@@ -127,8 +117,10 @@ class Default_IndexController extends Zend_Controller_Action
     public function registerAction()
     {
         if ($this->getRequest()->isPost()){
+
             if ($this->getRegisterForm()->isValid($this->_request->getPost())){
                 $data = $this->getRegisterForm()->getValues();
+
             }else{
 
             }

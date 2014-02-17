@@ -1,3 +1,6 @@
+<?php
+    $errorMessages = $this->element->getMessages();
+?>
 <form role="form" action="<?php echo $this->element->getAction(); ?>" method="post">
     <div class="row">
         <div class="col-lg-4">
@@ -6,34 +9,117 @@
             </div>
         </div>
     </div>
+
+    <?php if (isset($errorMessages['username'])) { ?>
+        <div class="row">
+            <div class="col-lg-4">
+                <?php if (isset($errorMessages['username']['isEmpty'])){ ?>
+                    <div class="alert alert-danger">Name is a required field.</div>
+                <?php }elseif (isset($errorMessages['username']['stringLengthTooShort'])){ ?>
+                    <div class="alert alert-danger">Name should be at least 6 characters long.</div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+
     <div class="row">
         <div class="col-lg-4">
-            <div class="form-group">
+            <div class="form-group <?php echo (isset($errorMessages['username'])) ? ' has-error' : '' ?>">
+                <?php echo $this->element->username; ?>
+            </div>
+        </div>
+    </div>
+
+    <?php if (isset($errorMessages['useremail'])) { ?>
+        <div class="row">
+            <div class="col-lg-4">
+                <?php if (isset($errorMessages['useremail']['isEmpty'])){ ?>
+                    <div class="alert alert-danger">Email is a required field.</div>
+                <?php }elseif (isset($errorMessages['useremail']['emailAddressInvalidFormat'])){ ?>
+                    <div class="alert alert-danger">Please enter a valid email.</div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group <?php echo (isset($errorMessages['useremail'])) ? ' has-error' : '' ?>">
+                <?php echo $this->element->useremail; ?>
+            </div>
+        </div>
+    </div>
+
+    <?php if (isset($errorMessages['usernameregister'])) { ?>
+        <div class="row">
+            <div class="col-lg-4">
+                <?php if (isset($errorMessages['usernameregister']['isEmpty'])){ ?>
+                    <div class="alert alert-danger">Username is a required field.</div>
+                <?php }elseif (isset($errorMessages['usernameregister']['stringLengthTooShort'])){ ?>
+                    <div class="alert alert-danger">Username should be at least 6 characters long.</div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group <?php echo (isset($errorMessages['usernameregister'])) ? ' has-error' : '' ?>">
                 <?php echo $this->element->usernameregister;?>
             </div>
         </div>
     </div>
+
+    <?php if (isset($errorMessages['passwordregister'])) { ?>
+        <div class="row">
+            <div class="col-lg-4">
+                <?php if (isset($errorMessages['passwordregister']['isEmpty'])){ ?>
+                    <div class="alert alert-danger">Password is a required field.</div>
+                <?php }elseif (isset($errorMessages['passwordregister']['stringLengthTooShort'])){ ?>
+                    <div class="alert alert-danger">Password should be at least 6 characters long.</div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+
     <div class="row">
         <div class="col-lg-4">
-            <div class="form-group">
+            <div class="form-group <?php echo (isset($errorMessages['passwordregister'])) ? ' has-error' : '' ?>">
                 <?php echo $this->element->passwordregister;?>
             </div>
         </div>
     </div>
+
+    <?php if (isset($errorMessages['passwordretype'])) { ?>
+        <div class="row">
+            <div class="col-lg-4">
+                <?php if (isset($errorMessages['passwordretype']['isEmpty'])){ ?>
+                    <div class="alert alert-danger">Password retype is a required field.</div>
+                <?php }elseif (isset($errorMessages['passwordretype']['stringLengthTooShort'])){ ?>
+                    <div class="alert alert-danger">Password retype should be at least 6 characters long.</div>
+                <?php }elseif (isset($errorMessages['passwordRetype']['notSame'])){ ?>
+                    <div class="alert alert-danger">The two passwords do not match.</div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php }?>
+
     <div class="row">
         <div class="col-lg-4">
-            <div class="form-group">
+            <div class="form-group <?php echo (isset($errorMessages['passwordretype'])) ? ' has-error' : '' ?>">
                 <?php echo $this->element->passwordretype;?>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-4">
-            <div class="form-group">
+            <div class="form-group <?php echo (isset($errorMessages['captcha'])) ? ' has-error' : '' ?>">
                 <?php echo $this->element->captcha;?>
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-4">
             <button type="submit" class="btn btn-success">Register</button>

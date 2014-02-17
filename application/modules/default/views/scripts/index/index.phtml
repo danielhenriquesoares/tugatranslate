@@ -1,13 +1,20 @@
 <div class="jumbotron">
     <div class="container">
-        <div class="page-header">
-            <h1>Welcome to TugaTranslate!</h1>
+        <div class="row">
+            <div id="homepage-logo" class="col-xs-6 col-sm-6 col-md-6">
+                <img class="img-responsive" src="<?php echo $this->baseUrl().'/img/globe_of_flags.jpeg'; ?>">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="page-header">
+                    <h1>Welcome to TugaTranslate!</h1>
+                </div>
+                <p>Do you have projects that need translations? You are in the right place.<br>
+                    With some simple steps you can start creating your translations. To take fully advantage of what we offer please register.</p>
+                <p>
+                    <a href="<?php echo $this->baseUrl().'/default/index/register'; ?>" class="btn btn-primary btn-lg">Register</a>
+                </p>
+            </div>
         </div>
-        <p>Do you have projects that need translations? You are in the right place.<br>
-        With some simple steps you can start creating your translations. To take fully advantage of what we offer please register.</p>
-        <p>
-            <a href="<?php echo $this->baseUrl().'/default/index/register'; ?>" class="btn btn-primary btn-lg">Register</a>
-        </p>
     </div>
 </div>
 <div class="container">
